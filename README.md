@@ -22,8 +22,6 @@ docker exec -d --privileged ewomail /bin/sh -c "echo '127.0.0.1   mail.xxx.com s
 free -m
 ```
 
-centos
-
 **关闭邮件杀软**
 
 **安装vim**
@@ -48,13 +46,13 @@ vim /etc/amavisd/amavisd.conf
 ```
 vim /usr/lib/systemd/system/amavisd.service
 ```
-在 Wants=clamd@amavisd.service 前面加上#符号*
+在 Wants=clamd@amavisd.service 前面加上#符号 保存文件
 
-**保存文件**
 修改后
+
 ![image](https://github.com/GgBoom-993/EwoMailForDocker/assets/55505202/952fbd2e-c252-4f6a-a62a-3f6b35d45701)
 
-输入以下命令即可完成杀毒软件的关闭
+最后输入以下命令，禁用、重启相关服务后即可关闭内置的邮件杀软
 ```
 systemctl daemon-reload
 systemctl stop clamd@amavisd
